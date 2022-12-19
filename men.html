@@ -20,6 +20,11 @@
             <h3>LOGIN</h3>
         </div>
     </div>
+    <select  onchange="sort()">
+    <option value="">price select</option>
+    <option value="HIGH">HIGH</option>
+    <option value="LOW">LOW</option>
+    </select>
     <div id="main1">
         <div>
             <a href="./women.html" class="anc"><h3>WOMEN</h3></a> 
@@ -374,7 +379,7 @@ function check(data){
 
 function myfun(){
     
-//  function search(){
+//  function sort(){
 //    // console.log("tpye")
 
 //   let val= document.querySelector("input").value;
@@ -384,20 +389,20 @@ function myfun(){
 //   check(newData)
 //  }
 
-//  function selectbyprice(){
-//  // console.log("someone chenge my value")
-//  let select= document.querySelector("select").value;
-//  //console.log(select)
-//  if(select=="higherprice"){
-//   bag.sort((a,b)=> b.price-a.price )
-//  }
+ function sort(){
+ // console.log("someone chenge my value")
+ let select= document.querySelector("select").value;
+ //console.log(select)
+ if(select=="HiGH"){
+  bag.sort((a,b)=> b.price-a.price )
+ }
 
-//  if(select=="lowerprice"){
-//   bag.sort((a,b)=> a.price-b.price )
-//  }
-//  check(bag)
+ if(select=="LOW"){
+  bag.sort((a,b)=> a.price-b.price )
+ }
+ check(bag)
 
-//  }
+ }
 }
  
 
