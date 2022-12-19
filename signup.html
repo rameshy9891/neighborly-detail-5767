@@ -4,40 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            background-color: bisque;
-            margin: 0px;
-            padding: 0px;
-
-        }
-        #form{
-            margin-left: 500px;
-            margin-top: 200px;
-        }
-       #email{
-            margin: auto;
-            height: 30px;
-            width: 200px;
-        }
-        #pass{
-            margin: auto;
-            height: 30px;
-            width: 200px;
-        }
-    </style>
+    <title>Sign IN</title>
+    <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-    <form id="form">
-        <input type="email" id="email" placeholder="enter email id">
-
-        <br>
-        <input type="password" id="pass" placeholder="enter your password">
-        <br>
-        <input type="submit" name="" id="">
-    </form>
-    
+    <div id="main">
+        <div id="leble">
+         <a href="signup.html"> <button id="sig">Sign Up</button></a>
+          
+           <a href="login.html"> <button id="log">Log In</button></a>
+         
+        </div>
+        <div  id="singup">
+         
+            <h2 style="text-align: center;">SIGN UP HERE</h2>
+            <input type="text" placeholder="Your Name" id="name">
+            <input type="email" placeholder="Email" id="email">
+            <input type="number" placeholder="Number" id="num">
+            <input type="password" placeholder="Enter New password" id="pass">
+           <a href="login.html"> <button id="signup">Sign Up</button></a>
+        </div>
+      
+        </div>
+        
 </body>
+<script>
+
+document.getElementById("signup").addEventListener("click",()=>{
+      let user=JSON.parse(localStorage.getItem("user"))||[]
+      let isnew=true
+      let ename=document.getElementById("name").value
+      for(let i=0;i<user.length;i++){
+        if(user[i].name==ename){
+          isnew=false
+        }
+      }
+      if(isnew){
+        user.push({
+          name:ename,
+          email:document.getElementById("email").value,
+          number:document.getElementById("num").value,
+          pass:document.getElementById("pass").value
+        })
+        localStorage.setItem("user",JSON.stringify(user))
+        alert("sign up done you can log in now")
+      }else{
+        alert("alredy signuped")
+      }
+    })
+
+</script>
 </html>
-<script src="signup.js" > </script>

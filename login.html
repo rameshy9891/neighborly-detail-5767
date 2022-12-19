@@ -4,38 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            background-color: bisque;
-            margin: 0px;
-            padding: 0px;
-
-        }
-        #form{
-            margin-left: 500px;
-            margin-top: 200px;
-           
-        }
-       #email{
-            margin: auto;
-            height: 30px;
-            width: 200px;
-        }
-        #pass{
-            margin: auto;
-            height: 30px;
-            width: 200px;
-        }
-    </style>
-</head>
+    <title>LOGIN IN</title>
+    <link rel="stylesheet" href="login.css">
 <body>
-    <form id="form">
-        <input type="email" id="email" placeholder="enter email id">
-        <input type="password" id="pass" placeholder="enter your password">
-        <input type="submit" name="" id="">
-    </form>
-    
+    <div id="main">
+        <div id="leble">
+            <a href="signup.html"> <button id="sig">Sign Up</button></a>
+          
+            <a href="login.html"> <button id="log">Log In</button></a>
+        </div>
+       
+     <div id="login">
+        <h2 >LOGIN HERE</h2>
+            <input type="text" placeholder="Email" id="eemail">
+            <input type="password" placeholder="password" id="epass">
+              <button id="loging">Log In</button>
+        </div>
+        </div>
 </body>
+<script>
+
+document.getElementById("loging").addEventListener("click",()=>{
+      let user=JSON.parse(localStorage.getItem("user"))||[]
+      let eemail=document.getElementById("eemail").value
+      let epass=document.getElementById("epass").value
+      let isvalid=false
+      for(let i=0;i<user.length;i++){
+        if(user[i].email==eemail){
+          if(user[i].pass==epass){
+            isvalid=true;
+           
+          }
+          
+        }
+      }
+      if(isvalid){
+        alert("login succesfull")
+       // window.location.pathname="men.html"
+      }else if(isvalid=""){
+        alert("nothing is there")
+      }
+      
+      else{
+        alert("wrong credentials")
+      }
+    })
+</script>
 </html>
-<script src="./login.js"></script>
