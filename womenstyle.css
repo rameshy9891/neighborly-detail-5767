@@ -82,3 +82,20 @@ h3 {
 .anc{
     margin-left: 20px;
 }
+
+@media all and (min-width:500px) and (max-width:900px){
+    #maincont{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+}
+@media all and (min-width:200px) and (max-width:399px){
+    #maincont{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+}
