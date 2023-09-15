@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign IN</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div id="main">
+        <div id="leble">
+         <a href="signup.html"> <button id="sig">Sign Up</button></a>
+          
+           <a href="login.html"> <button id="log">Log In</button></a>
+         
+        </div>
+        <div  id="singup">
+         
+            <h2 style="text-align: center;">SIGN UP HERE</h2>
+            <input type="text" placeholder="Your Name" id="name">
+            <input type="email" placeholder="Email" id="email">
+            <input type="number" placeholder="Number" id="num">
+            <input type="password" placeholder="Enter New password" id="pass">
+           <a href="login.html"> <button id="signup">Sign Up</button></a>
+        </div>
+      
+        </div>
+        
+</body>
+<script>
+
+document.getElementById("signup").addEventListener("click",()=>{
+      let user=JSON.parse(localStorage.getItem("user"))||[]
+      let isnew=true
+      let ename=document.getElementById("name").value
+      for(let i=0;i<user.length;i++){
+        if(user[i].name==ename){
+          isnew=false
+        }
+      }
+      if(isnew){
+        user.push({
+          name:ename,
+          email:document.getElementById("email").value,
+          number:document.getElementById("num").value,
+          pass:document.getElementById("pass").value
+        })
+        localStorage.setItem("user",JSON.stringify(user))
+        alert("sign up done you can log in now")
+      }else{
+        alert("alredy signuped")
+      }
+    })
+
+</script>
+</html>
